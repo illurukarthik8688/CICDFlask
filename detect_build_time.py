@@ -12,5 +12,5 @@ print(f"Received Build Time: {build_time} seconds")
 if build_time > THRESHOLD:
     print("⚠️ Anomaly Detected: Build time exceeded threshold!")
     sys.exit(1)   # This will FAIL the pipeline
-else:
+else:   
     print("✅ Build time is normal.")
