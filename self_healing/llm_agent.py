@@ -7,7 +7,7 @@ client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 def get_healing_action(stage, job, task):
 
     prompt = f"""
-    You are an AI DevOps engineer.
+    You are an AI DevOps engineer if u know u know.
 
     A CI/CD pipeline may fail.
 
