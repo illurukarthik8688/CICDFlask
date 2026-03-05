@@ -2,11 +2,13 @@ import joblib
 import numpy as np
 import sys
 
+from Self_Healing.llm_agent import get_healing_action
+from Self_Healing.healing_actions import execute_action
+
 model = joblib.load("failure_model.pkl")
 encoders = joblib.load("encoders.pkl")
 target_encoder = joblib.load("target_encoder.pkl")
 
-# Example pipeline s tage (hardcoded for now)
 new_data = {
     "stage_name": "Deploy",
     "job_name": "deploy_to_dev",
@@ -28,9 +30,20 @@ predicted_status = target_encoder.inverse_transform([prediction])[0]
 print(f"Prediction: {predicted_status}")
 print(f"Confidence: {confidence*100:.2f}%")
 
-# If high risk, fail pipeline
+# If high risk, trigger self-healing
 if predicted_status.lower() == "failed" and confidence > 0.6:
-    print("⚠️ High failure risk detected. Stopping pipeline.")
+
+    print("⚠️ High failure risk detected.")
+
+    action = get_healing_action(
+        new_data["stage_name"],
+        new_data["job_name"],
+        new_data["task_name"]
+    )
+
+    execute_action(action)
+
     sys.exit(1)
+
 else:
     print("✅ Safe to continue pipeline.")
