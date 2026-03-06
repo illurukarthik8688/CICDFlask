@@ -1,10 +1,12 @@
 from google import genai
 import os
 
-# Load API key
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
-
 def get_healing_action(stage, job, task):
+    api_key = os.getenv("GEMINI_API_KEY")
+    if not api_key:
+        return "retry_job"
+        
+    client = genai.Client(api_key=api_key)
 
     prompt = f"""
     You are an AI DevOps engineer if u know u know.
