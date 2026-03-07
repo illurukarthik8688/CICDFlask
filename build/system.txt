@@ -1,8 +1,0 @@
-2026-03-06T06:11:10.6780000Z Requested labels: ubuntu-latest
-2026-03-06T06:11:10.6780000Z Job defined at: illurukarthik8688/AI-Driven-anomaly-detection-/.github/workflows/ci.yml@refs/heads/main
-2026-03-06T06:11:10.6780000Z Waiting for a runner to pick up this job...
-2026-03-06T06:11:10.6620000Z Evaluating build.if
-2026-03-06T06:11:10.6620000Z Evaluating: success()
-2026-03-06T06:11:10.6620000Z Result: true
-2026-03-06T06:11:11.1490000Z Job is about to start running on the hosted runner: GitHub Actions 1000000049
-2026-03-06T06:11:11.1490000Z Job is waiting for a hosted runner to come online.
