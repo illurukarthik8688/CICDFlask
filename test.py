@@ -11,7 +11,7 @@ class FlaskTestCase(unittest.TestCase):
 
     def test_home(self):
         response = self.app.get("/")
-        self.assertEqual(response.status_code, 404)
+        self.assertEqual(response.status_code, 202)
 
     def test_prediction(self):
         response = self.app.post(
